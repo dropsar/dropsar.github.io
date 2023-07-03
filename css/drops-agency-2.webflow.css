@@ -569,7 +569,7 @@
 
 .columns-2 {
   width: 100%;
-  max-width: 100%;
+  max-width: 1400px;
   justify-content: space-between;
   align-items: flex-start;
   display: flex;
@@ -577,7 +577,6 @@
 
 .column-3 {
   width: 100%;
-  max-width: 320px;
   grid-column-gap: 24px;
   grid-row-gap: 24px;
   flex-direction: column;
@@ -652,7 +651,7 @@
   padding-top: 16px;
   padding-bottom: 16px;
   display: flex;
-  box-shadow: 0 -1px #e4ebf3;
+  /* box-shadow: 0 -1px #e4ebf3; */
 }
 
 .text-9 {
@@ -829,9 +828,16 @@
   line-height: 125%;
 }
 
-.herosubtitle {
+.herosubtitle-b {
   text-align: left;
   color: #fff;
+  font-size: 20px;
+  font-weight:bold;
+}
+
+.herosubtitle-bp {
+  text-align: left;
+  color: #9990FF;
   font-size: 20px;
   font-weight:bold;
 }
@@ -903,12 +909,11 @@
 }
 
 .drops-team {
-  width: 100%;
   height: auto;
   grid-column-gap: 80px;
   grid-row-gap: 80px;
   background-color: #000000;
-  justify-content: center;
+  justify-content: left;
   align-items: flex-start;
   padding: 64px 24px;
   display: flex;
@@ -918,12 +923,12 @@
   width: 100%;
   height: 614px;
   /* max-width: 941px; */
-  grid-column-gap: 25px;
-  grid-row-gap: 25px;
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
   justify-content: flex-start;
   align-items: flex-start;
   display: flex;
-  position: relative;
+  position: left;
 }
 
 .f2wf-columns-2 {
@@ -969,7 +974,6 @@
 
 .small-columns-3 {
   width: 100%;
-  max-width: 775px;
   grid-column-gap: 40px;
   grid-row-gap: 40px;
   justify-content: flex-start;
@@ -995,7 +999,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 15px;
+  padding-bottom: 25px;
   display: flex;
 }
 
@@ -1423,6 +1427,7 @@
 
 .footer-2 {
   width: 100%;
+  max-width: 1200px;
   grid-column-gap: 40px;
   grid-row-gap: 40px;
   background-color: #000000;
@@ -1728,7 +1733,7 @@
 @media screen and (max-width: 767px) {
   .f2wf-small-columns, .f2wf-small-columns-2, .f2wf-small-columns-3 {
     flex-direction: column;
-    align-items: center;
+    align-items: left;
   }
 
   .hero-heading-right {
