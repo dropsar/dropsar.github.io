@@ -289,7 +289,7 @@
   display: flex;
 }
 
-.image-wrapper-2 {
+.product-item {
   width: 100%;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
@@ -1664,10 +1664,13 @@
 }
 
 model-viewer{
-  text-align: left;
   width: 400px;
   height: 600px;
-  float: left;
+}
+
+.model-thumb{
+  width: 200px;
+  height: 300px;
 }
 
 @media screen and (max-width: 991px) {
