@@ -1032,7 +1032,7 @@
 }
 
 .text-15 {
-  color: #FFFFFF;
+  color: #9990FF;
   text-align: center;
   font-size: 16px;
   font-weight: 600;
@@ -1663,6 +1663,24 @@
   background-color: #43464d;
 }
 
+.btn-info {
+  color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: #9990FF;
+  font-size: 10px;
+  transition: all .2s;
+}
+
+.btn-info:hover {
+  color: #fff;
+  background-color: #32343a;
+}
+
+.btn-info:active {
+  background-color: #43464d;
+}
+
 model-viewer{
   width: 400px;
   height: 600px;
@@ -1670,6 +1688,11 @@ model-viewer{
 
 .model-thumb{
   width: 200px;
+  height: 300px;
+}
+
+.model-full{
+  width: 100%;
   height: 300px;
 }
 

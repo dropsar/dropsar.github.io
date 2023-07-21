@@ -81,22 +81,36 @@
           </div>
           <div class="small-columns f2wf-small-columns">
             <div class="column-2">
-              <a href="./projects/ashnikko.html" class="no-underline">
-                <div class="product-item"><img src="/images/Image_Ashnikko.png" loading="lazy" width="292" height="292" srcset="/images/Image_Ashnikko-p-500.png 500w, /images/Image_Ashnikko.png 552w" sizes="(max-width: 479px) 83vw, 292px" alt="" class="image-2">
-                  <div class="text-15">Ashnikko</div>
+              
+              <div class="product-item">
+                <model-viewer class="model-thumb" src="/images/page_ashnikkop-sigil.glb"
+                poster="/images/ashnikko_EGG_GROUND.24.png" 
+                camera-target="-30deg 55deg 10deg" zoom="10" camera-controls disable-zoom interaction-prompt="none"
+                shadow-intensity="1" touch-action="pan-y"></model-viewer>
+                <a href="./projects/ashnikko.html" class="no-underline">
+                  <!-- <img src="/images/Image_Ashnikko.png" loading="lazy" width="292" height="292" srcset="/images/Image_Ashnikko-p-500.png 500w, /images/Image_Ashnikko.png 552w" sizes="(max-width: 479px) 83vw, 292px" alt="" class="image-2"> -->
+                  <div class="text-15 text-purple">Ashnikko</div>
                   <div class="desc-short">AR Portal Scavenger Hunt in 16 cities around the world<br></div>
                   <button type="button" class="readmore btn btn-info">Read More</button>
                 </div>
               </a>
-              <a href="./projects/insecure.html" class="no-underline">
-                <div class="product-item"><img src="/images/Image_5.png" loading="lazy" width="292" height="292" srcset="/images/Image_5-p-500.png 500w, /images/Image_5.png 572w" sizes="(max-width: 479px) 83vw, 292px" alt="" class="image-2">
-                  <div class="text-15">Insecure</div>
+              <div class="product-item">
+                <model-viewer class="model-thumb" src="/images/raedio_02.glb" poster="/images/page_insecure-500.png" 
+                camera-orbit="0deg 55deg 50m" camera-controls disable-zoom
+                shadow-intensity="1" touch-action="pan-y" interaction-prompt="none"></model-viewer>
+                
+                <a href="./projects/insecure.html" class="no-underline">
+                  <div class="text-15">HBO <i>i</i>nsecure Season 5</div>
                   <div class="desc-short">AR Portal Scavenger Hunt<br>around the LA area<br></div>
                   <button type="button" class="readmore btn btn-info">Read More</button>
                 </div>
               </a>
-              <a href="./projects/trivium.html" class="no-underline">
-                <div class="product-item"><img src="/images/Image_9.png" loading="lazy" width="292" height="292" srcset="/images/Image_9-p-500.png 500w, /images/Image_9.png 596w" sizes="(max-width: 479px) 83vw, 292px" alt="" class="image-2">
+              <div class="product-item">
+                <model-viewer class="model-thumb" id="mvTrivium"src="/images/page_trivium_dragon.glb" poster="/images/page_trivium_image.png" 
+                camera-orbit="-15deg 90deg 1m" camera-controls disable-zoom interaction-prompt="none"
+                shadow-intensity="1" touch-action="pan-y" interaction-prompt="none"></model-viewer>
+                <!-- <img src="/images/Image_9.png" loading="lazy" width="292" height="292" srcset="/images/Image_9-p-500.png 500w, /images/Image_9.png 596w" sizes="(max-width: 479px) 83vw, 292px" alt="" class="image-2"> -->
+                <a href="./projects/trivium.html" class="no-underline">
                   <div class="text-15">Trivium</div>
                   <div class="desc-short">AR Dragon dropped in<br>multiple cities around the world<br></div>
                   <button type="button" class="readmore btn btn-info">Read More</button>
@@ -105,13 +119,12 @@
             </div>
             <div class="column-2">
                 <div class="product-item">
-                  <a href="./projects/soccermommy.html" class="no-underline">
-                    <model-viewer class="model-thumb" disable-tap src="/images/sm-card-02.glb" poster="/images/page_soccermommy_MagicCard_WithU-500.png" 
-                    auto-rotate
-                    shadow-intensity="1" touch-action="pan-y"></model-viewer>
-
-                    <!-- <img src="images/Image_7.png" loading="lazy" width="292" height="292" srcset="images/Image_7-p-500.png 500w, images/Image_7.png 584w" sizes="(max-width: 479px) 83vw, 292px" alt="" class="image-2"> -->
+                  <model-viewer class="model-thumb" disable-tap src="/images/sm-card-02.glb" poster="/images/page_soccermommy_MagicCard_WithU-500.png" 
+                  camera-controls disable-zoom interaction-prompt="none"
+                  shadow-intensity="1" touch-action="pan-y"></model-viewer>
                   
+                  <a href="./projects/soccermommy.html" class="no-underline">
+                    
                     <div class="text-15">Soccer Mommy</div>
                     <div class="desc-short">AR Trading Cards geofenced at 50 independent Record Stores and locations around the world.</div>
                     <button type="button" class="readmore btn btn-info">Read More</button>
@@ -119,19 +132,30 @@
                 </div>
               <div class="product-item">
                 <!-- <img src="images/Image_8.png" loading="lazy" width="292" height="292" srcset="images/Image_8-p-500.png 500w, images/Image_8.png 596w" sizes="(max-width: 479px) 83vw, 292px" alt="" class="image-2"> -->
-                <model-viewer class="model-thumb" src="/images/page_amonamarth_viking-ship-with-chest.3.glb" poster="/images/ship-render.png" 
-                camera-orbit="-30deg 55deg 5m"
-                shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <a href="./projects/amonamarth.html" class="no-underline">
+                  <model-viewer class="model-thumb" src="/images/aa-viking-ship-05.1.glb" poster="/images/page_amonamarth_ship-render.png" 
+                  camera-orbit="-30deg 55deg 40m" camera-controls disable-zoom interaction-prompt="none"
+                  shadow-intensity="1" touch-action="pan-y"></model-viewer>
+                
                   <div class="text-15">Amon Amarth</div>
                   <div class="desc-short">Algorithmic AR Scavenger Hunt<br>in cities around the world<br></div>
                   <button type="button" class="readmore btn btn-info">Read More</button>
                 </a>
               </div>
-              <div class="product-item"><img src="/images/Image_6.png" loading="lazy" width="292" height="292" srcset="/images/Image_6-p-500.png 500w, /images/Image_6.png 622w" sizes="(max-width: 479px) 83vw, 292px" alt="" class="image-2">
+              <div class="product-item">
+                <a href="./projects/plannedparenthood.html" class="no-underline">
+                
+                <model-viewer class="model-thumb" src="/images/pp_lens_centered.glb
+                " poster="/images/page_plannedparenthood.png"
+                  camera-orbit="-30deg 55deg 5m" camera-controls disable-zoom interaction-prompt="none"
+                  shadow-intensity="1" touch-action="pan-y"></model-viewer>
+                
+                 <!-- <img src="" loading="lazy" width="292" height="292" srcset="/images/Image_6-p-500.png 500w, /images/Image_6.png 622w" sizes="(max-width: 479px) 83vw, 292px" alt="" class="image-2"> -->
                 <div class="text-15">Planned Parenthood</div>
                 <div class="desc-short">AR Portal available to <br>their monthly subscribers<br></div>
                 <button type="button" class="readmore btn btn-info">Read More</button>
+                
+                </a>
               </div>
             </div>
           </div>
@@ -239,6 +263,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript" crossorigin="anonymous"></script>
   <script src="js/index.js" type="text/javascript"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
+  <!-- <script type="text/javascript">
+    const modelViewer = document.querySelector("model-thumb#mvTrivium");
+    modelViewer.addEventListener("load", () => {
+      console.log("loaded")
+      const changeColor = (event) => {
+      console.log(event)
+      }
+      modelViewer.addEventListener("click", changeColor);
+    })
+    </script> -->
   <!-- </div> -->
 </body>
 </html>
