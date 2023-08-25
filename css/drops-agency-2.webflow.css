@@ -1696,6 +1696,11 @@ model-viewer{
   height: 300px;
 }
 
+.model-full-lg{
+  width: 100%;
+  height: 500px;
+}
+
 @media screen and (max-width: 991px) {
   model-viewer{
     width: 800px;

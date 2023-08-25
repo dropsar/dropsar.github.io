@@ -80,6 +80,20 @@
 
             <div class="glide__wrapper">
               <ul class="glide__track">
+                <li class="glide__slide w-100">
+                  <model-viewer id="firstModel" class="model-full-lg" src="../images/sm-card-02.glb"
+                  poster="../images/page_soccermommy_MagicCard_WithU-500.png" 
+                  camera-orbit="45deg 55deg 4m"
+                  camera-controls
+                  min-field-of-view="-1000"
+                  min-field-of-view="1000"
+                  interaction-prompt="none"
+                  shadow-intensity="1" touch-action="pan-y"
+                  auto-rotate
+                  auto-rotate-delay="0"
+                  rotation-per-second="30deg"
+                  ></model-viewer>
+              </li>
                 <li class="glide__slide">
                   <img
                     src="../images/page_soccermommy0.png"
@@ -99,31 +113,13 @@
                         <img src="../images/page_insecure0.png" loading="lazy" sizes="(max-width: 479px) 94vw, (max-width: 767px) 95vw, (max-width: 991px) 92vw, 43vw" srcset="../images/page_insecure0-500.png 500w, ../images/page_insecure0-800.png 800w, ../images/page_insecure0-1080.png 1080w, ../images/page_insecure0.png 1144w" alt="" class="shadow-two">
                       </a> -->
                 </li>
+               
                 <li class="glide__slide">
                   <img src="../images/page_soccermommy_animatedgif.gif" />
                 </li>
-                <li class="glide__slide w-100">
-                  <div class="mx-auto">
-                    <!-- <model-viewer
-                      src="../images/sm-card-02.glb"
-                      auto-rotate
-                      rotation-per-second="30deg"
-                      poster="../images/page_soccermommy_MagicCard_WithU-500.png"
-                      shadow-intensity="1"
-                      camera-controls
-                      touch-action="pan-y"
-                    ></model-viewer> -->
-                    <model-viewer id="firstModel" class="model-full" src="../images/sm-card-02.glb"
-                    poster="/images/ashnikko_EGG_GROUND.24.png" 
-                    camera-target="-30deg 55deg -1000deg"
-                    min-field-of-view="-1000"
-                    min-field-of-view="1000"
-                    camera-controls interaction-prompt="none"
-                    shadow-intensity="1" touch-action="pan-y"
-                    auto-rotate></model-viewer>
-                  </div>
-                </li>
               </ul>
+            </div>
+
             </div>
 
             <div class="glide__bullets"></div>
@@ -153,6 +149,7 @@
         type: "carousel",
       });
       $("#Glide").glide.pause();
+      const modelViewer = document.querySelector("model-viewer#firstModel");
     </script>
   </body>
 </html>
