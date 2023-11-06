@@ -1,0 +1,212 @@
+<html>
+  <head>
+    <link href="../../css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="../../css/webflow.css" rel="stylesheet" type="text/css">
+    <link href="../../css/drops-agency-2.webflow.css" rel="stylesheet" type="text/css">
+  
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet" />
+  </head>
+<body>
+<div id="map"></div>
+  <br>
+  <div id="welcome">
+    <h2>WELCOME TO THE DROPSAR x HOPE FOR HAITI CHALLENGE</h2>
+    </div>
+  <button id="fly">LET'S BEGIN</button>
+  <div id="dropContainer" style="display: none;">
+    <h2>To learn more HOPE FOR HAITI before the earthquake</h2>
+    <button id="drop1"><h3>CLICK HERE</h3></button>
+    <h4>to see images in Augmented Reality</h4>
+    </div>
+  <style>
+    body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+#welcome h2 {
+    display: block;
+    position: relative;
+    margin: 50px auto;
+    width: 300px;
+    height: auto;
+    text-align: center;
+    color: #fff;
+    background-color: #2A5175;
+    font-weight: 100;
+}
+#fly {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    width: auto;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    background: #B5393A;
+}
+
+#dropContainer{
+    display: block;
+    position: relative;
+    margin: 50px;
+    float: right;
+    width: 300px;
+    height: auto;
+}
+
+#dropContainer h2 {
+    text-align: center;
+    color: #fff;
+    background-color: #2A5175;
+    font-weight: 100;
+}
+
+#dropContainer h4 {
+    text-align: center;
+    color: #fff;
+    background-color: #2A5175;
+    font-weight: 100;
+}
+
+#dropContainer #drop1 {
+    margin: auto;
+    display: block;
+    width: auto;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    background: #B5393A;
+}
+</style>
+<script type="text/javascript">
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2hpMTEiLCJhIjoieGh5WE5ydyJ9.B7LtBt8hQixasCYHY9R_gA';
+
+const map = new mapboxgl.Map({
+container: 'map',
+projection: 'globe',
+center: [-30, 60], // starting center in [lng, lat]
+zoom: 3,
+pitch: 30,
+bearing: 0,
+// Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+style: 'mapbox://styles/mapbox/satellite-v9',
+interactive: false
+});
+
+// Create a default Marker, colored black, rotated 45 degrees.
+const marker = new mapboxgl.Marker({ color: 'red', rotation: 15, scale:.75 })
+.setLngLat([-73.75227480716791, 18.18979617487914])
+.addTo(map);
+
+map.on('style.load', () => {
+map.setFog({}); // Set the default atmosphere style
+
+// Add terrain
+map.addSource('mapbox-dem', {
+'type': 'raster-dem',
+'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
+'tileSize': 512,
+'maxzoom': 14
+});
+map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
+});
+
+document.getElementById('fly').addEventListener('click', () => {
+    //hide welcome and fly
+    document.getElementById('welcome').style.display = 'none';
+    document.getElementById('fly').style.display = 'none';
+    // Fly to a random location
+    map.flyTo({
+        center: [-73.75227480716791, 18.18979617487914],
+      duration: 6000, // Animate over 6 seconds
+      zoom: 14,
+        essential: true // this animation is considered essential with respect to prefers-reduced-motion
+    });
+});
+
+document.getElementById('drop1').addEventListener('click', () => {
+    window.location.href = "https://www.drops.nyc/d/654404c731e1f9a2a0a8e1b9"
+})
+
+
+// At low zooms, complete a revolution every two minutes.
+const secondsPerRevolution = 120;
+// Above zoom level 5, do not rotate.
+const maxSpinZoom = 5;
+// Rotate at intermediate speeds between zoom levels 3 and 5.
+const slowSpinZoom = 3;
+
+let userInteracting = false;
+let spinEnabled = true;
+
+function spinGlobe() {
+    const zoom = map.getZoom();
+    if (spinEnabled && !userInteracting && zoom < maxSpinZoom) {
+        let distancePerSecond = 360 / secondsPerRevolution;
+    if (zoom > slowSpinZoom) {
+        // Slow spinning at higher zooms
+        const zoomDif =
+        (maxSpinZoom - zoom) / (maxSpinZoom - slowSpinZoom);
+        distancePerSecond *= zoomDif;
+        }
+        const center = map.getCenter();
+        center.lng -= distancePerSecond;
+        // Smoothly animate the map over one second.
+        // When this animation is complete, it calls a 'moveend' event.
+        map.easeTo({ center, duration: 1000, easing: (n) => n });
+    }
+}
+
+// Pause spinning on interaction
+map.on('mousedown', () => {
+    userInteracting = true;
+});
+
+// Restart spinning the globe when interaction is complete
+map.on('mouseup', () => {
+userInteracting = false;
+    spinGlobe();
+});
+
+// These events account for cases where the mouse has moved
+// off the map, so 'mouseup' will not be fired.
+map.on('dragend', () => {
+userInteracting = false;
+    spinGlobe();
+});
+map.on('pitchend', () => {
+userInteracting = false;
+    spinGlobe();
+});
+map.on('rotateend', () => {
+userInteracting = false;
+    spinGlobe();
+});
+
+// When animation is complete, start spinning if there is no ongoing interaction
+map.on('moveend', () => {
+    spinGlobe();
+});
+
+map.on('zoomend', () => {
+    console.log('A zoomend event occurred.');
+    const popup = new mapboxgl.Popup({ closeOnClick: false })
+        .setLngLat([-73.75227480716791, 18.18979617487914])
+        .setHTML('<div><h3>Welcome to Infirmary Saint Etienne</h3><h4>Les Cayes, Haiti</h4><p><h5>in 2021 Hope For Haiti was nearing completion of a New Medical Complex. Then a devastating earthquake hit the country.</h5></p></div>')
+        .addTo(map);
+
+    document.getElementById('dropContainer').style.display = 'block';
+});
+
+spinGlobe();
+</script>
+</body>
+</html>
