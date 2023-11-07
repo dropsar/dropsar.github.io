@@ -1,5 +1,7 @@
 <html>
   <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
     <link href="../../css/normalize.css" rel="stylesheet" type="text/css">
     <link href="../../css/webflow.css" rel="stylesheet" type="text/css">
     <link href="../../css/drops-agency-2.webflow.css" rel="stylesheet" type="text/css">
@@ -13,10 +15,10 @@
   <div id="welcome">
     <h2>WELCOME TO THE DROPSAR x HOPE FOR HAITI CHALLENGE</h2>
     </div>
-  <button id="fly">LET'S BEGIN</button>
+  <button class="fly-button" id="fly">LET'S BEGIN</button>
   <div id="dropContainer" style="display: none;">
-    <h2>To learn more HOPE FOR HAITI before the earthquake</h2>
-    <button id="drop1"><h3>CLICK HERE</h3></button>
+    <h2>To learn more about<br/>HOPE FOR HAITI<br/>before the earthquake</h2>
+    <button class="fly-button" id="drop1">CLICK HERE</button>
     <h4>to see images in Augmented Reality</h4>
     </div>
   <style>
@@ -34,11 +36,10 @@
     background-color: #2A5175;
     font-weight: 100;
 }
-#fly {
+.fly-button {
     display: block;
     position: relative;
     margin: 0 auto;
-    margin-bottom: 100px;
     width: auto;
     height: 40px;
     padding: 10px;
@@ -50,13 +51,24 @@
     background: #B5393A;
 }
 
+@media screen and (max-width: 479px) {
+    .fly-button {
+        font-size: 1.2em !important;
+    }
+}
+
 #dropContainer{
     display: block;
     position: relative;
-    margin: 50px;
-    float: right;
+    margin: 400px auto 50px auto;
     width: 300px;
     height: auto;
+}
+
+@media screen and (max-width: 479px) {
+    #dropContainer{
+        margin: 350px auto 50px auto;
+    }
 }
 
 #dropContainer h2 {
@@ -73,7 +85,7 @@
     font-weight: 100;
 }
 
-#dropContainer #drop1 {
+/* #dropContainer #drop1 {
     margin: auto;
     display: block;
     width: auto;
@@ -84,7 +96,7 @@
     text-align: center;
     color: #fff;
     background: #B5393A;
-}
+} */
 </style>
 <script type="text/javascript">
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2hpMTEiLCJhIjoieGh5WE5ydyJ9.B7LtBt8hQixasCYHY9R_gA';
@@ -92,9 +104,9 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic2hpMTEiLCJhIjoieGh5WE5ydyJ9.B7LtBt8hQixasCYH
 const map = new mapboxgl.Map({
 container: 'map',
 projection: 'globe',
-center: [-30, 60], // starting center in [lng, lat]
-zoom: 3,
-pitch: 30,
+center: [-60, 60], // starting center in [lng, lat]
+zoom: 2,
+pitch: 90,
 bearing: 0,
 // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
 style: 'mapbox://styles/mapbox/satellite-v9',
@@ -102,7 +114,7 @@ interactive: false
 });
 
 // Create a default Marker, colored black, rotated 45 degrees.
-const marker = new mapboxgl.Marker({ color: 'red', rotation: 15, scale:.75 })
+const marker = new mapboxgl.Marker({ color: 'red', rotation: 15, scale:.75, anchor: 'top' })
 .setLngLat([-73.75227480716791, 18.18979617487914])
 .addTo(map);
 
