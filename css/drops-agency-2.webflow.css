@@ -103,6 +103,13 @@
 
 .text-purple{
     color: #9990FF;  
+    font-size:2em;
+    line-height: 150%;
+}
+.text-white {
+  color: #9990FF;  
+  font-size:2em;
+  line-height: 150%;
 }
 
 .navbar-button {
@@ -866,6 +873,17 @@
   .herotitle-2 {
     font-size: 2em;
   }
+}
+
+.text-purple{
+  color: #9990FF;  
+  font-size:1.2em;
+  line-height: 150%;
+}
+.text-white {
+color: #9990FF;  
+font-size:1.2em;
+line-height: 150%;
 }
 
 .herosubtitle-b {
@@ -1879,6 +1897,7 @@ model-viewer{
     font-size: 1em;
     font-weight: 600;
     line-height: 150%;
+    width: 100%;
   }
 }
 
