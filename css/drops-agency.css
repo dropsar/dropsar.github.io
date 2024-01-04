@@ -1,3 +1,100 @@
+.drops-team {
+    height: auto;
+    grid-column-gap: 80px;
+    grid-row-gap: 80px;
+    background-color: #000;
+    justify-content: left;
+    align-items: flex-start;
+    padding: 10px 0px 10px 0px;
+    display: flex;
+  }
+
+  .drops-team-image-wrapper {
+    width: 100%;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 25px;
+    display: flex;
+  }
+  
+  .contact-container {
+    width: 100%;
+    grid-column-gap: 80px;
+    grid-row-gap: 80px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: auto;
+  }
+  
+  .map-container {
+      position: relative;
+      text-align: center;
+      color: white;  
+  }
+
+  .drops-gallery {
+    width: 100%;
+    height: 1311px;
+    grid-column-gap: 80px;
+    grid-row-gap: 80px;
+    background-color: #000000;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 64px 24px;
+    display: flex;
+  }
+
+  .drops-team {
+    height: auto;
+    display: block;
+  }
+
+  .ar-portal-scavenger-hunt-in-16-cities-around-the-world {
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .drops-creative-solutions-delightful-augmented-reality-experiences-0 {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 150%;
+  }
+  
+  .drops-creative-solutions-delightful-augmented-reality-experiences-1 {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .drops-creative-solutions-delightful-augmented-reality-experiences-1 {
+    text-align: center;
+  }
+  
+  .centered {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .map-img{
+    height: 100vh;
+      object-fit: cover;
+  }
+  
+  .contact {
+    width: 100%;
+  }
+  
 
 .no-underline{
     text-decoration: none;
@@ -5,14 +102,13 @@
 }
 
 .video-fit {
-    /* object-fit:contain */
-    width: auto    !important;
+    object-fit:contain;
   height: 640px   !important;
 }
 @media screen and (max-width: 479px) {
     .video-fit {
         /* object-fit:contain */
-        width: auto    !important;
+        width: 320px  !important;
       height: 320px   !important;
     }
 }
@@ -24,6 +120,7 @@
 .product-item{
     text-align: center;
     width: 100%;
+    background: radial-gradient(closest-side, #222222 0%, #000000 100%);
 }
 
 /* .product-item:hover .desc-short{
@@ -47,4 +144,84 @@
 }
 .product-item:hover .readmore{ 
 	display:block;
+}
+
+.carousel-fade {
+    .carousel-inner {
+        .item {
+            transition-property: opacity;
+        }
+        
+        .item,
+        .active.left,
+        .active.right {
+            opacity: 0;
+        }
+
+        .active,
+        .next.left,
+        .prev.right {
+            opacity: 1;
+        }
+
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    .carousel-control {
+        z-index: 2;
+    }
+}
+
+.carouselContainer {
+    width: 75%;
+    height: 200px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.carousel-caption {
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+}
+
+.carousel-indicators {
+    bottom: -2em !important;
+}
+@media screen and (max-width: 479px) {
+    .carouselContainer {
+        width: 100%;
+        height: 270px;
+    }
+
+    .carousel-item {
+        top: 2.25em !important;
+    }
+
+    .carousel-indicators {
+        bottom: -5em !important;
+    }
+}
+
+.carousel, 
+.carousel-inner, 
+.carousel-inner .item {
+    height: 100%;
+}
+
+.item:nth-child(1) {
+    background: #74C390;
+}
+
+.item:nth-child(2) {
+    background: #51BCE8;
+}
+
+.item:nth-child(3) {
+    background: #E46653;
 }

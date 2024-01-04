@@ -26,10 +26,10 @@
       type="video/mp4"
     />
     <link href="css/normalize.css" rel="stylesheet" type="text/css" />
-    <link href="css/webflow.css" rel="stylesheet" type="text/css" />
     <link href="css/drops-agency.css" rel="stylesheet" type="text/css" />
+    <link href="css/webflow-custom.css" rel="stylesheet" type="text/css" />
     <link
-      href="css/drops-agency-2.webflow.css"
+      href="css/webflow.css"
       rel="stylesheet"
       type="text/css"
     />
@@ -84,7 +84,7 @@
           </div>
           <!-- <div class="main-title"><span class="herotitle-2">Hey there, </span> <span class="herotitle">hire us for your next Augmented Reality promotion.</span></div> -->
         </div>
-        <div class="small-container" style="background-image: linear-gradient(#000, #000);">
+        <div class="small-container" style="background: radial-gradient(closest-side, #222222 0%, #000000 100%);">
           <div class="">
             <video
               id="videoElement"
@@ -132,7 +132,7 @@
           </div>
           <div class="small-columns-3 f2wf-small-columns-3">
             <div class="column-4">
-              <div class="image-wrapper-5">
+              <div class="drops-team-image-wrapper">
                 <img
                   src="/images/Image_Seth.jpg"
                   loading="lazy"
@@ -418,17 +418,233 @@
         </div>
       </div>
       
-      <div id="contact" class="contact">
+      <div class="contact-container">
+        <div class="row w-100">
+        <div class="col-xs-12 col-sm-2">
+          <h5 class="text-purple">CONNECT WITH US</h5>
+        </div>
+        <div class="col-xs-12 col-sm-10">
+          <div class="carouselContainer wf-section">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-interval="false" data-bs-touch="false"
+              data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-slide-to="0" data-bs-target="#carouselExampleCaptions" class="active"
+                  aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-slide-to="1" data-bs-target="#carouselExampleCaptions"
+                  aria-label="Slide 2"></button>
+                <button type="button" data-bs-slide-to="2" data-bs-target="#carouselExampleCaptions"
+                  aria-label="Slide 3"></button>
+                <button type="button" data-bs-slide-to="3" data-bs-target="#carouselExampleCaptions"
+                  aria-label="Slide 4"></button>
+                <button type="button" data-bs-slide-to="4" data-bs-target="#carouselExampleCaptions"
+                  aria-label="Slide 5"></button>
+                <button type="button" data-bs-slide-to="5" data-bs-target="#carouselExampleCaptions"
+                  aria-label="Slide 6"></button>
+                <button type="button" data-bs-slide-to="6" data-bs-target="#carouselExampleCaptions"
+                  aria-label="Slide 7"></button>
+              </div>
+              <div class="carousel-inner">
+        
+                <div class="carousel-item h-100 active">
+                  <div class="carousel-caption d-block">
+                    <h5>Join our beta</h5>
+                    <p>Please tell us more about yourself</p>
+                    <!-- <form
+                          id="contact"
+                          method="post"
+                          class="form card-body"
+                          role="form"
+                          @submit="submit()"
+                        > -->
+                    <form id="slide1" class="form card-body" role="form" onsubmit="nextSlide(); return false">
+                      <div class="input-group">
+                        <div class="col-xs-12 col-sm-11" style="padding:0px;">
+                          <input id="name" class="form-control" name="name" placeholder="Your name" type="text" required
+                            autofocus>
+                        </div>
+                        <div class="col-xs-12 col-sm-1" style="padding:0px;">
+                          <button data-bs-target="#carouselExampleCaptions" aria-label="next" type="submit"
+                            class="btn btn-info">NEXT</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+        
+        
+                <div class="carousel-item h-100">
+                  <div class="carousel-caption d-block">
+                    <h5>And your email address. required*</h5>
+                    <p>We'll add this address to our early access waitlist.</p>
+                    <form id="slide2" class="form card-body" role="form" onsubmit="sendData(event)">
+                      <div class="input-group">
+                        <div class="col-xs-12 col-sm-11" style="padding:0px;">
+                        <input id="email" class="form-control" name="email" placeholder="Your email" type="email" required
+                          autofocus>
+                        </div>
+                        <div class="col-xs-12 col-sm-1" style="padding:0px;">
+                        <button data-bs-target="#carouselExampleCaptions" aria-label="next" type="submit"
+                          class="btn btn-info">NEXT</button>
+                          </div> 
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="carousel-item h-100">
+                  <div class="carousel-caption d-block">
+                    <h5>What do you currently use to discover, create, and share AR content online?</h5>
+                    <p></p>
+                    <form id="slide3" class="form card-body" role="form" onsubmit="nextSlide(); return false">
+                      <div class="input-group">
+                        <div class="col-xs-12 col-sm-11" style="padding:0px;">
+                        <textarea id="competitors" class="form-control" name="competitors" placeholder="" type="text"
+                          autofocus></textarea>
+                        </div>
+                          <div class="col-xs-12 col-sm-1 my-auto" style="padding:0px;">
+                        <button data-bs-target="#carouselExampleCaptions" aria-label="next" type="submit"
+                          class="btn btn-info">NEXT</button>
+                          </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="carousel-item h-100">
+                  <div class="carousel-caption d-block">
+                    <h5>What do you do in life?</h5>
+                    <p>Work, interests, and otherwise</p>
+                    <form id="slide4" class="form card-body" role="form" onsubmit="nextSlide(); return false">
+                      <div class="input-group">
+                        <div class="col-xs-12 col-sm-11" style="padding:0px;">
+                          <textarea id="occupation" class="form-control" name="occupation" placeholder="" type="text" autofocus></textarea>
+                        </div>
+                        <div class="col-xs-12 col-sm-1 my-auto" style="padding:0px;">
+                          <button data-bs-target="#carouselExampleCaptions" aria-label="next" type="submit" class="btn btn-info">NEXT</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="carousel-item h-100">
+                  <div class="carousel-caption d-block">
+                    <h5>What types of AR content that you're interested in creating?</h5>
+                    <p></p>
+                    <form id="slide5" class="form card-body" role="form" onsubmit="nextSlide(); return false">
+                      <div class="input-group">
+                        <div class="col-xs-12 col-sm-11" style="padding:0px;">
+                        <textarea id="interestedin" class="form-control" name="interestedin" placeholder="" type="text"
+                          autofocus></textarea>
+                          </div> 
+                          <div class="col-xs-12 col-sm-1 my-auto" style="padding:0px;">
+                        <button data-bs-target="#carouselExampleCaptions" aria-label="next" type="submit"
+                          class="btn btn-info">NEXT</button>
+                          </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="carousel-item h-100">
+                  <div class="carousel-caption d-block">
+                    <h5>Where did you hear about Drops?</h5>
+                    <form id="slide6" class="form card-body" role="form" onsubmit="nextSlide(); return false">
+                      <div class="input-group">
+                        <div class="col-xs-12 col-sm-11" style="padding:0px;">
+                          <textarea id="referrer" class="form-control" name="referrer" placeholder="" type="text"
+                          autofocus></textarea>
+                          </div>
+                          <div class="col-xs-12 col-sm-1 my-auto" style="padding:0px;">
+                        <button data-bs-target="#carouselExampleCaptions" aria-label="next" type="submit"
+                          class="btn btn-info">NEXT</button>
+                          </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="carousel-item h-100">
+                  <div class="carousel-caption d-block">
+                    <h5>Last one! Who else should use Drops to create and share AR?</h5>
+                    <p>Name a Dropster and we'll say hi to them!</p>
+                    <form id="finalSlide" class="form card-body" role="form" onsubmit="submit(); return false;">
+                      <div class="input-group">
+                        <div class="col-xs-12 col-sm-11" style="padding:0px;">
+                        <input id="friend" class="form-control" name="friend" placeholder="email" type="email"
+                          autofocus>
+                          </div>
+                          <div class="col-xs-12 col-sm-1" style="padding:0px;">
+                        <button data-bs-target="#carouselExampleCaptions" aria-label="next" type="submit"
+                          class="btn btn-info">SUBMIT</button>
+                          </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
 
-        <div class="contact-form wf-section">
-          <iframe
+       <!-- <iframe
           class="h_iframe"
           height="900"
           width="100%"
           src="https://www.drops.nyc/contact"
-          >
-        </div>
-      </div>
+          > -->
+          
+          <!--<form
+          id="contact"
+          method="post"
+          class="form card-body"
+          role="form"
+          @submit="submit()"
+        >
+          <div class="row">
+            <div class="col-xs-12 col-md-12 form-group">
+              <!- v-model="contact.name" 
+              <input
+                id="name"
+                class="form-control"
+                name="name"
+                placeholder="Your name"
+                type="text"
+                required
+                autofocus
+              >
+            </div>
+            <div class="col-xs-12 col-md-12 form-group">
+              <!- v-model="contact.email"
+              <input
+                id="email"
+                class="form-control"
+                name="email"
+                placeholder="Your email"
+                type="email"
+                required
+              >
+            </div>
+          </div>
+          <!- v-model="contact.message"
+          <textarea
+            id="message"
+            class="form-control"
+            name="message"
+            placeholder="Message"
+            rows="5"
+          ></textarea>
+          <br>
+          <button class="btn btn-block btn-secondary form-button" type="submit">
+            Send message
+          </button>
+        </form> -->
+
       <div class="footer">
         <div class="columns-2 f2wf-columns">
           <div class="column-3">
