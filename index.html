@@ -456,7 +456,7 @@
                           role="form"
                           @submit="submit()"
                         > -->
-                    <form id="slide1" class="form card-body" role="form" onsubmit="nextSlide(); return false">
+                    <form id="slide1" class="form card-body" role="form" onsubmit="nextSlide(event)">
                       <div class="input-group">
                         <div class="col-xs-12 col-sm-11" style="padding:0px;">
                           <input id="name" class="form-control" name="name" placeholder="Your name" type="text" required
@@ -476,7 +476,7 @@
                   <div class="carousel-caption d-block">
                     <h5>And your email address. required*</h5>
                     <p>We'll add this address to our early access waitlist.</p>
-                    <form id="slide2" class="form card-body" role="form" onsubmit="nextSlide()">
+                    <form id="slide2" class="form card-body" role="form" onsubmit="nextSlide(event)">
                       <div class="input-group">
                         <div class="col-xs-12 col-sm-11" style="padding:0px;">
                         <input id="email" class="form-control" name="email" placeholder="Your email" type="email" required
@@ -494,7 +494,7 @@
                   <div class="carousel-caption d-block">
                     <h5>What do you currently use to discover, create, and share AR content online?</h5>
                     <p></p>
-                    <form id="slide3" class="form card-body" role="form" onsubmit="nextSlide(); return false">
+                    <form id="slide3" class="form card-body" role="form" onsubmit="nextSlide(event)">
                       <div class="input-group">
                         <div class="col-xs-12 col-sm-11" style="padding:0px;">
                         <textarea id="competitors" class="form-control" name="competitors" placeholder="" type="text"
@@ -512,7 +512,7 @@
                   <div class="carousel-caption d-block">
                     <h5>What do you do in life?</h5>
                     <p>Work, interests, and otherwise</p>
-                    <form id="slide4" class="form card-body" role="form" onsubmit="nextSlide(); return false">
+                    <form id="slide4" class="form card-body" role="form" onsubmit="nextSlide(event)">
                       <div class="input-group">
                         <div class="col-xs-12 col-sm-11" style="padding:0px;">
                           <textarea id="occupation" class="form-control" name="occupation" placeholder="" type="text" autofocus></textarea>
@@ -528,7 +528,7 @@
                   <div class="carousel-caption d-block">
                     <h5>What types of AR content that you're interested in creating?</h5>
                     <p></p>
-                    <form id="slide5" class="form card-body" role="form" onsubmit="nextSlide(); return false">
+                    <form id="slide5" class="form card-body" role="form" onsubmit="nextSlide(event)">
                       <div class="input-group">
                         <div class="col-xs-12 col-sm-11" style="padding:0px;">
                         <textarea id="interestedin" class="form-control" name="interestedin" placeholder="" type="text"
@@ -545,7 +545,7 @@
                 <div class="carousel-item h-100">
                   <div class="carousel-caption d-block">
                     <h5>Where did you hear about Drops?</h5>
-                    <form id="slide6" class="form card-body" role="form" onsubmit="nextSlide(); return false">
+                    <form id="slide6" class="form card-body" role="form" onsubmit="nextSlide(event)">
                       <div class="input-group">
                         <div class="col-xs-12 col-sm-11" style="padding:0px;">
                           <textarea id="referrer" class="form-control" name="referrer" placeholder="" type="text"

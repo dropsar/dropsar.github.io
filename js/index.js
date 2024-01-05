@@ -1,10 +1,9 @@
-function nextSlide(params) {
-  console.log("next slide")
+function nextSlide(event) {
+  event.preventDefault()
   $('#carouselExampleCaptions').carousel('next');
 }
 
 function sendData(event) {
-  console.log("test" + event)
   event.preventDefault()
   var json = JSON.stringify({
     name: document.getElementById("name").value,
