@@ -15,7 +15,7 @@ function sendData(event) {
     referrer: document.getElementById("referrer").value,
     friend: document.getElementById("friend").value
 })
-fetch("https://api.dev.drops.nyc:3080/contactUs", { 
+fetch("https://api.drops.nyc/contactUs", { 
     body: json,
     headers: {'Content-Type': 'application/json'},
     method: "POST",
