@@ -476,7 +476,7 @@
                   <div class="carousel-caption d-block">
                     <h5>And your email address. required*</h5>
                     <p>We'll add this address to our early access waitlist.</p>
-                    <form id="slide2" class="form card-body" role="form" onsubmit="sendData(event)">
+                    <form id="slide2" class="form card-body" role="form" onsubmit="nextSlide()">
                       <div class="input-group">
                         <div class="col-xs-12 col-sm-11" style="padding:0px;">
                         <input id="email" class="form-control" name="email" placeholder="Your email" type="email" required
@@ -563,7 +563,7 @@
                   <div class="carousel-caption d-block">
                     <h5>Last one! Who else should use Drops to create and share AR?</h5>
                     <p>Name a Dropster and we'll say hi to them!</p>
-                    <form id="finalSlide" class="form card-body" role="form" onsubmit="submit(); return false;">
+                    <form id="finalSlide" class="form card-body" role="form" onsubmit="sendData(event);">
                       <div class="input-group">
                         <div class="col-xs-12 col-sm-11" style="padding:0px;">
                         <input id="friend" class="form-control" name="friend" placeholder="email" type="email"
