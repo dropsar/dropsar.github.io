@@ -28,12 +28,14 @@
     align-items: center;
     display: flex;
     height: auto;
+    background-color: #000;
   }
   
   .map-container {
       position: relative;
       text-align: center;
       color: white;  
+      background-color: #000;
   }
 
   .drops-gallery {
@@ -95,6 +97,13 @@
     width: 100%;
   }
   
+.btn-text-lg{
+    color: #9990FF;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    line-height: 150%;
+    text-align: left;
+}
 
 .no-underline{
     text-decoration: none;
@@ -105,12 +114,64 @@
     object-fit:contain;
   height: 640px   !important;
 }
+
+.text-over-map {
+    color: #fff;
+    text-align: center;
+    font-size: 1em;
+    font-weight: 600;
+    line-height: 150%;
+    width: 100%;
+  }
+
+  .map-text-top-centered{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .map-text-bottom-centered{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
 @media screen and (max-width: 479px) {
     .video-fit {
         /* object-fit:contain */
         width: 320px  !important;
       height: 320px   !important;
     }
+    .text-over-map {
+        color: #fff;
+        text-align: center;
+        font-size: .8em;
+        font-weight: 600;
+        line-height: 150%;
+      }
+      .map-text-top-centered{
+        width: 100%;
+        font-size: .75em !important;
+      }
+    
+      .map-text-bottom-centered{
+        width: 100%;
+        font-size: .75em !important;
+      }
+}
+
+@media screen and (max-width: 991px) {
+    .map-text-top-centered{
+        width: 100%;
+        font-size: .8em !important;
+      }
+    
+      .map-text-bottom-centered{
+        width: 100%;
+        font-size: .8em !important;
+      }
 }
 
 .bg-black{
