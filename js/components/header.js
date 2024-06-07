@@ -26,11 +26,6 @@ class Header extends HTMLElement {
                      </a>
             </li>
             <li class="nav-item">
-                     <a href="/index.html#team" class="navbar-link w-nav-link">
-                       <div class="btn btn-nav">Drops Team</div>
-                     </a>
-            </li>
-            <li class="nav-item">
                      <a href="/index.html#contact" class="navbar-link w-nav-link">
                        <div class="btn btn-contact">Get in Touch</div>
                      </a>
