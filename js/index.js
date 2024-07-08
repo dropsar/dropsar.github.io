@@ -22,9 +22,11 @@ fetch("https://api.drops.nyc/contactUs", {
     cache: 'default',
     }).then((data) => {
     console.log("Success:", data);
+    $('#carouselExampleCaptions').carousel('next');
   })
   .catch((error) => {
     console.error("Error:", error);
+    $('#carouselExampleCaptions').carousel('next');
   });
 }
 
