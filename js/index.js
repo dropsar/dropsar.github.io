@@ -36,12 +36,9 @@ fetch("https://api.drops.nyc/contactUs", {
       if (!response.ok) {
       throw new Error('Network response was not ok');
       }
-      return response.json();
-    })  
-    .then((data) => {
-    console.log("Success:", data);
-    $('#carouselExampleCaptions').carousel('next');
-  })
+      console.log("Success:", data);
+      $('#carouselExampleCaptions').carousel('next');
+    })
   .catch((error) => {
     console.error("Error:", error);
     // $('#carouselExampleCaptions').carousel('next');
