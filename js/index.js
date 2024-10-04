@@ -4,10 +4,21 @@ function nextSlide(event) {
 }
 
 function sendData(event) {
+
   event.preventDefault()
+  var email = document.getElementById("email").value;
+  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  if (!emailPattern.test(email)) {
+    document.getElementById('error-message').innerText = "Invalid email address";
+    document.getElementById('error-message').style.display = 'block';
+    $('#carouselExampleCaptions').carousel(1);
+    return;
+  }
+
   var json = JSON.stringify({
     name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
+    email: email,
     competitors: document.getElementById("competitors").value,
     occupation: document.getElementById("occupation").value,
     interestedin: document.getElementById("interestedin").value,
@@ -20,15 +31,24 @@ fetch("https://api.drops.nyc/contactUs", {
     method: "POST",
     mode: 'cors',
     cache: 'default',
-    }).then((data) => {
+    })
+    .then(response => {
+      if (!response.ok) {
+      throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })  
+    .then((data) => {
     console.log("Success:", data);
     $('#carouselExampleCaptions').carousel('next');
   })
   .catch((error) => {
     console.error("Error:", error);
-    $('#carouselExampleCaptions').carousel('next');
-  });
-}
+    // $('#carouselExampleCaptions').carousel('next');
+    document.getElementById('error-message').innerText = error.message;
+    document.getElementById('error-message').style.display = 'block';
+  })
+  }
 
 //window.addEventListener("load", () => {
 
