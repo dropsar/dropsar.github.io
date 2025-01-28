@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>US States 3D Extrusion</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+        #legend {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 3px;
+            font-family: Arial;
+        }
+        #statePanel {
+            position: absolute;
+            top: 20px;
+            lef: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 4px;
+            font-family: Arial;
+            max-height: 80vh;
+            overflow-y: auto;
+            min-width: 200px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .state-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .state-row:last-child {
+            border-bottom: none;
+        }
+        .color-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div id="legend">Point Density</div>
+    <div id="statePanel">
+        <h4 style="margin:0 0 10px 0">State Point Counts</h4>
+        <div id="stateCounts"></div>
+    </div>
+    <script>
+        // Replace with your Mapbox access token
+        mapboxgl.accessToken = 'pk.eyJ1Ijoic2hpMTEiLCJhIjoieGh5WE5ydyJ9.B7LtBt8hQixasCYHY9R_gA';
+
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/dark-v11', // Changed to dark style for better contrast
+            center: [-98.5795, 39.8283], // Center of US
+            zoom: 3,
+            pitch: 45, // Add 3D perspective
+            bearing: -17.6
+        });
+
+        // Generate a color based on value
+        function getColor(value) {
+            // Color scale from low (blue) to high (red)
+            const colors = [
+                '#313695', '#4575b4', '#74add1', '#abd9e9',
+                '#fee090', '#fdae61', '#f46d43', '#d73027'
+            ];
+            const maxValue = 1000; // Adjust based on your data
+            const index = Math.min(
+                Math.floor((value / maxValue) * colors.length),
+                colors.length - 1
+            );
+            return colors[index];
+        }
+
+        map.on('load', () => {
+            // Add US states boundary source
+            map.addSource('states', {
+                'type': 'geojson',
+                'data': 'https://docs.mapbox.com/mapbox-gl-js/assets/us_states.geojson'
+            });
+
+            // Add our coordinates source
+            map.addSource('state-points', {
+                'type': 'geojson',
+                'data': 'tt-coordinates-with-states.json'
+            });
+
+            // Add base state layer (non-extruded)
+            map.addLayer({
+                'id': 'state-fills',
+                'type': 'fill',
+                'source': 'states',
+                'paint': {
+                    'fill-color': '#000000',
+                    'fill-opacity': 0.1
+                }
+            });
+
+            // Add extruded layer
+            map.addLayer({
+                'id': 'state-extrusions',
+                'type': 'fill-extrusion',
+                'source': 'states',
+                'paint': {
+                    'fill-extrusion-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'density'],
+                        0, '#f7f7f7',     // Lightest gray (0-1 points)
+                        5, '#d9d9d9',     // Very light gray (1-5 points)
+                        10, '#bdbdbd',    // Light gray (5-10 points)
+                        15, '#969696',    // Medium gray (10-15 points)
+                        25, '#737373',    // Dark gray (15-25 points)
+                        35, '#525252',    // Very dark gray (25-35 points)
+                        50, '#252525'     // Almost black (35-50 points)
+                    ],
+                    'fill-extrusion-height': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'density'],
+                        0, 1000,
+                        5, 50000,
+                        10, 100000,
+                        15, 150000,
+                        25, 200000,
+                        35, 250000,
+                        50, 300000
+                    ],
+                    'fill-extrusion-opacity': 0.8,
+                    'fill-extrusion-base': 0
+                }
+            });
+
+            // Load point data and calculate density
+            fetch('tt-coordinates-with-states.json')
+                .then(response => response.json())
+                .then(data => {
+                    const stateCounts = {};
+                    let maxCount = 0;
+
+                    // Count points per state and log state names
+                    console.log("States from tt-coordinates-with-states.json:");
+                    data.features.forEach(feature => {
+                        const state = feature.properties.state;
+                        const points = feature.geometry.coordinates.length;
+                        // Clean up state name and store count
+                        const cleanStateName = state
+                            .replace(/^state of /i, '')  // Remove "State of" prefix if present
+                            .replace(/^the /i, '')       // Remove "The" prefix if present
+                            .trim();                     // Remove extra spaces
+                        stateCounts[cleanStateName] = (stateCounts[cleanStateName] || 0) + points;
+                        console.log(`${cleanStateName}: ${points} points`);
+                        maxCount = Math.max(maxCount, points);
+                    });
+
+                    // Fetch the states data
+                    return fetch('https://docs.mapbox.com/mapbox-gl-js/assets/us_states.geojson')
+                        .then(response => response.json())
+                        .then(statesData => {
+                            console.log("States from US states GeoJSON:");
+                            // Update states data with density
+                            console.log(`statesData${statesData.features.toString()}`);
+                            statesData.features.forEach(feature => {
+                                const stateName = feature.properties.STATE_NAME;
+                                console.log(`Looking for count for: ${stateName}`);
+                                const count = stateCounts[stateName] || 0;
+                                feature.properties.density = count;
+                                console.log(`${stateName}: ${count}`);
+                            });
+
+                            // Update the source
+                            map.getSource('states').setData(statesData);
+
+                            // Create sorted array of state data
+                            const stateArray = statesData.features
+                                .map(feature => ({
+                                    name: feature.properties.STATE_NAME,
+                                    count: feature.properties.density
+                                }))
+                                .sort((a, b) => b.count - a.count);
+
+                            // Update state counts panel
+                            const stateCountsDiv = document.getElementById('stateCounts');
+                            stateCountsDiv.innerHTML = stateArray
+                                .map(state => {
+                                    const color = getColorForDensity(state.count);
+                                    return `
+                                        <div class="state-row">
+                                            <span>
+                                                <span class="color-dot" style="background:${color}"></span>
+                                                ${state.name}
+                                            </span>
+                                            <strong>${state.count}</strong>
+                                        </div>
+                                    `;
+                                })
+                                .join('');
+
+                            // Log final counts
+                            console.log("Final state counts:", stateCounts);
+                        });
+                });
+
+            // Add helper function to get color based on density
+            function getColorForDensity(density) {
+                if (density > 35) return '#252525';
+                if (density > 25) return '#525252';
+                if (density > 15) return '#737373';
+                if (density > 10) return '#969696';
+                if (density > 5) return '#bdbdbd';
+                if (density > 1) return '#d9d9d9';
+                return '#f7f7f7';
+            }
+
+            // Update legend
+            const legend = document.getElementById('legend');
+            legend.innerHTML = `
+                <h4 style="margin:0 0 10px 0">Points per State</h4>
+                <div style="display:flex;flex-direction:column;gap:5px;">
+                    <div><span style="background:#252525;width:20px;height:20px;display:inline-block"></span> 35-50 points</div>
+                    <div><span style="background:#525252;width:20px;height:20px;display:inline-block"></span> 25-35 points</div>
+                    <div><span style="background:#737373;width:20px;height:20px;display:inline-block"></span> 15-25 points</div>
+                    <div><span style="background:#969696;width:20px;height:20px;display:inline-block"></span> 10-15 points</div>
+                    <div><span style="background:#bdbdbd;width:20px;height:20px;display:inline-block"></span> 5-10 points</div>
+                    <div><span style="background:#d9d9d9;width:20px;height:20px;display:inline-block"></span> 1-5 points</div>
+                    <div><span style="background:#f7f7f7;width:20px;height:20px;display:inline-block"></span> 0-1 points</div>
+                </div>
+            `;
+
+            // Add navigation controls
+            map.addControl(new mapboxgl.NavigationControl());
+        });
+    </script>
+</body>
+</html> 
