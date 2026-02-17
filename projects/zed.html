@@ -1,134 +1,123 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://www.webflow.com  -->
-<!--  Last Published: Thu Jun 22 2023 19:49:51 GMT+0000 (Coordinated Universal Time)  -->
-<html data-wf-page="64949515d63ee9b7d48c8e91" data-wf-site="6476578d4e4be7ea6b116153">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Zed</title>
-  <meta
-    content="AR (augmented reality) immersive listening experience using 8thwall webAR platform. Drops created this experience in conjunction with Zed&#x27;s team at Believe France."
-    name="description">
-  <meta content="Zed" property="og:title">
-  <meta
-    content="AR (augmented reality) immersive listening experience using 8thwall webAR platform. Drops created this experience in conjunction with Zed&#x27;s team at Believe France."
-    property="og:description">
-  <meta content="Zed" property="twitter:title">
-  <meta
-    content="AR (augmented reality) immersive listening experience using 8thwall webAR platform. Drops created this experience in conjunction with Zed&#x27;s team at Believe France."
-    property="twitter:description">
-  <meta property="og:type" content="website">
-  <meta content="summary_large_image" name="twitter:card">
+  <title>Zed | Drops</title>
+  <meta content="AR (augmented reality) immersive listening experience using 8thwall webAR platform. Drops created this experience in conjunction with Zed's team at Believe France." name="description">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <meta content="Webflow" name="generator">
-  <link href="../css/normalize.css" rel="stylesheet" type="text/css">
-  <link href="../css/webflow-custom.css" rel="stylesheet" type="text/css">
-  <link href="../css/webflow.css" rel="stylesheet" type="text/css">
-  <script
-    type="text/javascript">!function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);</script>
   <link href="../images/favicon.ico" rel="shortcut icon" type="image/x-icon">
   <link href="../images/webclip.png" rel="apple-touch-icon">
 
-  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glidejs@2.1.0/dist/css/glide.core.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glidejs@2.1.0/dist/css/glide.theme.css">
-  <script src="https://cdn.jsdelivr.net/npm/glidejs@2.1.0/dist/glide.js"></script>
-
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
-  <script src="../js/components/header.js" type="text/javascript" defer></script>
-  <link href="../css/drops-agency.css" rel="stylesheet" type="text/css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-    crossorigin="anonymous"></script>
-
-  <!-- New Design System -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Montserrat:wght@300;400;500&family=DM+Serif+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: '#9990FF',
+            'accent-light': '#b8b2ff',
+            dark: '#1a1a1a',
+            muted: '#6b7280',
+          },
+          fontFamily: {
+            heading: ['DM Sans', 'sans-serif'],
+            body: ['Montserrat', 'sans-serif'],
+            accent: ['DM Serif Display', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Model Viewer -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+  <script src="../js/components/header.js" type="text/javascript" defer></script>
+
   <style>
     body {
-      background-color: #fafaf9 !important;
-      color: #1a1a1a !important;
-      font-family: 'Montserrat', sans-serif !important;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'DM Sans', sans-serif !important;
-      color: #1a1a1a !important;
-    }
-    .navbar {
-      background-color: #1a1a1a !important;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fafaf9;
+      color: #1a1a1a;
     }
   </style>
 </head>
-
 <body>
   <header-component></header-component>
-  <section class="hero-heading-right wf-section">
-    <div class="container-3">
-      <div class="row">
-        <div class="col-md-6">
-          <iframe title="vimeo-player" src="https://player.vimeo.com/video/968316241?h=89b7770311" width="100%"
-        height="360" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="col-md-6">
-          <div class="carousel-wrapper">
-        <div id="Glide" class="glide">
-          <div class="glide__wrapper">
-            <ul class="glide__track">
-          <li class="glide__slide">
-            <model-viewer id="firstModel" class="model-full" src="/images/zed.glb" poster="/images/zed.png"
-              camera-orbit="90deg 90deg 5m" min-field-of-view="-100" min-field-of-view="100" camera-controls
-              interaction-prompt="none" shadow-intensity="1" touch-action="pan-y" auto-rotate></model-viewer>
-          </li>
-            </ul>
+
+  <!-- Project Hero Section -->
+  <section class="pt-32 lg:pt-40 pb-24 lg:pb-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+        <!-- Left: Video and Model -->
+        <div class="relative space-y-6">
+          <!-- Video -->
+          <div class="relative rounded-2xl overflow-hidden bg-neutral-100 aspect-video">
+            <iframe
+              title="vimeo-player"
+              src="https://player.vimeo.com/video/968316241?h=89b7770311"
+              class="w-full h-full"
+              frameborder="0"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <!-- Model Viewer -->
+          <div class="relative rounded-2xl overflow-hidden bg-neutral-100 aspect-square">
+            <model-viewer
+              src="/images/zed.glb"
+              poster="/images/zed.png"
+              camera-orbit="90deg 90deg 5m"
+              min-field-of-view="-100"
+              max-field-of-view="100"
+              camera-controls
+              interaction-prompt="none"
+              shadow-intensity="1"
+              touch-action="pan-y"
+              auto-rotate
+              class="w-full h-full"
+              style="--poster-color: transparent;">
+            </model-viewer>
           </div>
         </div>
-          </div>
-        </div>
-      </div>
-        <div class="hero-split text">
-          <h1>Zed</h1>
-          <p class="margin-bottom-24px">In collaboration with Believe,
-            Drops created a FIRST OF IT’S KIND immersive listening experience for french hip-hop artist, album release,
-            Malcom.
-            <br />
-            REALISTIC AVATARS BROUGHT THE ARTIST As well as first listen audio snippets DIRECTLY INTO THE FANS ROOM.
-            <br />
-            Resulting in A 6% CONVERSION AND une grande fête FOR THE FANS!<br>
+
+        <!-- Right: Content -->
+        <div>
+          <p class="text-xs text-accent font-heading tracking-wide uppercase mb-4">Believe France</p>
+          <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-dark mb-6">
+            Zed
+          </h1>
+          <p class="text-muted font-light leading-relaxed mb-4">
+            In collaboration with Believe, Drops created a first of its kind immersive listening experience for French hip-hop artist, album release, Malcom.
           </p>
-          <a href="https://www.drops.nyc/d/664a4ead462486c2973895c1" target="new" class="button-primary w-button">FULL
-            EXPERIENCE IN AR</a>
+          <p class="text-muted font-light leading-relaxed mb-4">
+            Realistic avatars brought the artist as well as first listen audio snippets directly into the fans room.
+          </p>
+          <p class="text-muted font-light leading-relaxed mb-8">
+            Resulting in a 6% conversion and une grande fête for the fans!
+          </p>
+          <a href="https://www.drops.nyc/d/664a4ead462486c2973895c1" target="_blank" class="inline-block bg-dark text-white font-heading text-sm tracking-wide px-8 py-3.5 rounded-full hover:bg-neutral-700 transition-colors">
+            FULL EXPERIENCE IN AR
+          </a>
         </div>
+
       </div>
     </div>
   </section>
-  <script src="../js/webflow.js" type="text/javascript"></script>
-  <script type="text/javascript">
-    $("#Glide").glide({
-      type: "carousel",
-      autoplay: false
-    });
-    const modelViewer = document.querySelector("model-viewer#firstModel");
 
-    const orbitCycle = [
-      '90deg 90deg 90m',
-      // '45deg 110deg 0m',
-      modelViewer.cameraOrbit
-    ];
-    var timesRun = 0;
-    var interval = setInterval(() => {
-      timesRun += 1;
-      if (timesRun === 1) {
-        clearInterval(interval);
-      }
-      const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
-      modelViewer.cameraOrbit =
-        orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
-    }, 3000);
-
-  </script>
-
+  <!-- Back to Home -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center">
+      <a href="/#more-work" class="inline-block border border-neutral-300 text-dark font-heading text-sm tracking-wide px-8 py-3.5 rounded-full hover:border-accent hover:text-accent transition-colors">
+        ← Back to All Work
+      </a>
+    </div>
+  </section>
 </body>
-
 </html>
