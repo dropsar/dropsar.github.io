@@ -138,29 +138,134 @@
 
 
   <!-- ============ SECTION 1: HERO ============ -->
-  <section class="min-h-screen flex items-center pt-20 lg:pt-0">
+  <section class="pt-32 lg:pt-40 pb-24 lg:pb-32">
     <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full">
-      <div class="max-w-3xl">
-        <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light leading-tight tracking-tight text-dark fade-up">
-          Your <span class="font-accent">Creativity</span> Belongs in the <span class="font-accent italic">Real&nbsp;World</span>.
-        </h1>
-        <p class="mt-6 lg:mt-8 text-lg lg:text-xl text-muted font-light leading-relaxed max-w-2xl fade-up">
-          We design and deploy location-based experiences that turn online audiences into IRL superfans — at any venue, in any city, at scale.
-        </p>
-        <div class="mt-10 flex flex-wrap gap-4 fade-up">
-          <a href="#work" class="inline-block bg-dark text-white font-heading text-sm tracking-wide px-8 py-3.5 rounded-full hover:bg-neutral-700 transition-colors">
-            See How It Works
-          </a>
-          <a href="#contact" class="inline-block border border-neutral-300 text-dark font-heading text-sm tracking-wide px-8 py-3.5 rounded-full hover:border-accent hover:text-accent transition-colors">
-            Get in Touch
-          </a>
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left: Headline + Subhead -->
+        <div>
+          <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light leading-tight tracking-tight text-dark fade-up">
+            Your <span class="font-accent">Creativity</span> Belongs in the <span class="font-accent italic">Real&nbsp;World</span>.
+          </h1>
+          <p class="mt-6 lg:mt-8 text-lg lg:text-xl text-muted font-light leading-relaxed fade-up">
+            We design and deploy location-based experiences that turn online audiences into IRL superfans — at any venue, in any city, at scale.
+          </p>
+          <div class="mt-10 flex flex-wrap gap-4 fade-up">
+            <a href="#work" class="inline-block bg-dark text-white font-heading text-sm tracking-wide px-8 py-3.5 rounded-full hover:bg-neutral-700 transition-colors">
+              See How It Works
+            </a>
+            <a href="#contact" class="inline-block border border-neutral-300 text-dark font-heading text-sm tracking-wide px-8 py-3.5 rounded-full hover:border-accent hover:text-accent transition-colors">
+              Get in Touch
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Video -->
+        <div class="fade-up flex justify-center items-center">
+          <div class="relative rounded-2xl overflow-hidden bg-black shadow-2xl w-72 lg:w-80">
+            <video
+              class="w-full h-auto"
+              muted
+              autoplay
+              playsinline>
+              <source src="/images/Drops_ad_video_19x16_vertical_trimmed.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
 
-  <!-- ============ SECTION 2: THE SHIFT ============ -->
+  <!-- ============ SECTION 2: FEATURED WORK ============ -->
+  <section id="work" class="py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-dark mb-16 fade-up">
+        Featured Work
+      </h2>
+
+      <!-- Ghost Case Study — Featured -->
+      <div class="mb-20 fade-up">
+        <div class="relative overflow-hidden rounded-2xl bg-dark group">
+          <div class="grid lg:grid-cols-2">
+            <div class="p-10 lg:p-16 flex flex-col justify-center">
+              <p class="font-heading text-sm tracking-widest text-accent uppercase mb-4">Ghost &times; Drops</p>
+              <h3 class="font-heading text-2xl lg:text-3xl font-light text-white leading-snug mb-3">
+                Rite Here Rite Now
+              </h3>
+              <p class="text-neutral-400 text-sm mb-6">Loma Vista Records</p>
+
+              <!-- Stats row -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8">
+                <div>
+                  <p class="font-heading text-2xl text-white font-light">1,800</p>
+                  <p class="text-xs text-neutral-500 mt-1">theaters</p>
+                </div>
+                <div>
+                  <p class="font-heading text-2xl text-white font-light">68K</p>
+                  <p class="text-xs text-neutral-500 mt-1">unique visitors</p>
+                </div>
+                <div>
+                  <p class="font-heading text-2xl text-white font-light">13%</p>
+                  <p class="text-xs text-neutral-500 mt-1">IRL conversion</p>
+                </div>
+                <div>
+                  <p class="font-heading text-2xl text-white font-light">$300K+</p>
+                  <p class="text-xs text-neutral-500 mt-1">ticket sales</p>
+                </div>
+              </div>
+
+              <p class="text-neutral-400 font-light leading-relaxed text-sm">
+                Ghost and Loma Vista Records hired Drops to promote "Rite Here Rite Now," the band's first feature film. We geofenced exclusive AR content at every screening location worldwide. On opening night, fans who arrived at their theater unlocked the Drop. The result: a top-10 box office debut.
+              </p>
+            </div>
+            <div class="relative min-h-[300px] lg:min-h-[500px]">
+              <img src="/images/Ghost1.png" alt="Ghost - Rite Here Rite Now" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- #iVoted Case Study -->
+      <div class="mb-20 fade-up">
+        <div class="relative overflow-hidden rounded-2xl bg-dark group">
+          <div class="grid lg:grid-cols-2">
+            <div class="relative min-h-[300px] lg:min-h-[450px] order-2 lg:order-1">
+              <img src="/images/taylorTomlinson-gotv.png" alt="Taylor Tomlinson #iVoted Campaign" class="absolute inset-0 w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-500">
+            </div>
+            <div class="p-10 lg:p-16 flex flex-col justify-center order-1 lg:order-2">
+              <p class="font-heading text-sm tracking-widest text-accent uppercase mb-4">#iVoted &times; Drops</p>
+              <h3 class="font-heading text-2xl lg:text-3xl font-light text-white leading-snug mb-6">
+                Every Polling Location in America
+              </h3>
+
+              <div class="grid grid-cols-3 gap-6 mb-8">
+                <div>
+                  <p class="font-heading text-2xl text-white font-light">15M+</p>
+                  <p class="text-xs text-neutral-500 mt-1">follower reach</p>
+                </div>
+                <div>
+                  <p class="font-heading text-2xl text-white font-light">40%</p>
+                  <p class="text-xs text-neutral-500 mt-1">conversion</p>
+                </div>
+                <div>
+                  <p class="font-heading text-2xl text-white font-light">50 states</p>
+                  <p class="text-xs text-neutral-500 mt-1">covered</p>
+                </div>
+              </div>
+
+              <p class="text-neutral-400 font-light leading-relaxed text-sm">
+                Drops partnered with #iVoted to drive voter turnout by geofencing exclusive content from artists and comedians at every polling location in the country. Fans who voted unlocked the content. Up to 40% conversion from intent to in-person collection.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ SECTION 3: THE SHIFT ============ -->
   <section class="py-24 lg:py-32 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -171,7 +276,7 @@
         </div>
         <div class="fade-up">
           <p class="text-lg text-muted font-light leading-relaxed">
-            You already know the world is moving from screen to scene. Fans don't just want to watch — they want to show up, participate, and take something home. The brands winning right now are the ones meeting their audience in the real world.
+            The world is moving from screen to scene. Fans don't just want to watch — they want to show up, participate, and take something home. The brands winning right now are the ones meeting their audience in the real world.
           </p>
           <p class="mt-6 text-lg text-dark font-medium leading-relaxed">
             The right experience, at the right location, at the right moment. That's a Drop.
@@ -191,7 +296,7 @@
   </section>
 
 
-  <!-- ============ SECTION 3: WHAT WE DO ============ -->
+  <!-- ============ SECTION 4: WHAT WE DO ============ -->
   <section id="about" class="py-24 lg:py-32">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <div class="max-w-2xl mb-16 fade-up">
@@ -249,7 +354,7 @@
   </section>
 
 
-  <!-- ============ SECTION 4: HOW WE WORK ============ -->
+  <!-- ============ SECTION 5: HOW WE WORK ============ -->
   <section class="py-24 lg:py-32 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <div class="grid lg:grid-cols-2 gap-16 lg:gap-24">
@@ -274,92 +379,9 @@
   </section>
 
 
-  <!-- ============ SECTION 5: FEATURED WORK ============ -->
-  <section id="work" class="py-24 lg:py-32">
+  <!-- ============ MORE WORK ============ -->
+  <section class="py-24 lg:py-32">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-dark mb-16 fade-up">
-        Featured Work
-      </h2>
-
-      <!-- Ghost Case Study — Featured -->
-      <div class="mb-20 fade-up">
-        <div class="relative overflow-hidden rounded-2xl bg-dark group">
-          <div class="grid lg:grid-cols-2">
-            <div class="p-10 lg:p-16 flex flex-col justify-center">
-              <p class="font-heading text-sm tracking-widest text-accent uppercase mb-4">Ghost &times; Drops</p>
-              <h3 class="font-heading text-2xl lg:text-3xl font-light text-white leading-snug mb-3">
-                Rite Here Rite Now
-              </h3>
-              <p class="text-neutral-400 text-sm mb-6">Loma Vista Records</p>
-
-              <!-- Stats row -->
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8">
-                <div>
-                  <p class="font-heading text-2xl text-white font-light">1,800</p>
-                  <p class="text-xs text-neutral-500 mt-1">theaters</p>
-                </div>
-                <div>
-                  <p class="font-heading text-2xl text-white font-light">68K</p>
-                  <p class="text-xs text-neutral-500 mt-1">unique visitors</p>
-                </div>
-                <div>
-                  <p class="font-heading text-2xl text-white font-light">13%</p>
-                  <p class="text-xs text-neutral-500 mt-1">IRL conversion</p>
-                </div>
-                <div>
-                  <p class="font-heading text-2xl text-white font-light">$300K+</p>
-                  <p class="text-xs text-neutral-500 mt-1">ticket sales</p>
-                </div>
-              </div>
-
-              <p class="text-neutral-400 font-light leading-relaxed text-sm">
-                Ghost and Loma Vista Records hired Drops to promote "Rite Here Rite Now," the band's first feature film. We geofenced exclusive AR content at every screening location worldwide. On opening night, fans who arrived at their theater unlocked the Drop. The result: a top-10 box office debut.
-              </p>
-            </div>
-            <div class="relative min-h-[300px] lg:min-h-[500px]">
-              <img src="/images/Ghost1.png" alt="Ghost - Rite Here Rite Now" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- #iVoted Case Study -->
-      <div class="mb-20 fade-up">
-        <div class="relative overflow-hidden rounded-2xl bg-dark group">
-          <div class="grid lg:grid-cols-2">
-            <div class="relative min-h-[300px] lg:min-h-[450px] order-2 lg:order-1">
-              <img src="/images/Image.png" alt="#iVoted Campaign" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500">
-            </div>
-            <div class="p-10 lg:p-16 flex flex-col justify-center order-1 lg:order-2">
-              <p class="font-heading text-sm tracking-widest text-accent uppercase mb-4">#iVoted &times; Drops</p>
-              <h3 class="font-heading text-2xl lg:text-3xl font-light text-white leading-snug mb-6">
-                Every Polling Location in America
-              </h3>
-
-              <div class="grid grid-cols-3 gap-6 mb-8">
-                <div>
-                  <p class="font-heading text-2xl text-white font-light">15M+</p>
-                  <p class="text-xs text-neutral-500 mt-1">follower reach</p>
-                </div>
-                <div>
-                  <p class="font-heading text-2xl text-white font-light">40%</p>
-                  <p class="text-xs text-neutral-500 mt-1">conversion</p>
-                </div>
-                <div>
-                  <p class="font-heading text-2xl text-white font-light">50 states</p>
-                  <p class="text-xs text-neutral-500 mt-1">covered</p>
-                </div>
-              </div>
-
-              <p class="text-neutral-400 font-light leading-relaxed text-sm">
-                Drops partnered with #iVoted to drive voter turnout by geofencing exclusive content from artists and comedians at every polling location in the country. Fans who voted unlocked the content. Up to 40% conversion from intent to in-person collection.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- More Work Grid -->
       <h3 class="font-heading text-xl text-dark mb-8 fade-up">More Work</h3>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 fade-up">
 
