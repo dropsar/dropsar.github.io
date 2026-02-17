@@ -220,7 +220,35 @@
               </p>
             </div>
             <div class="relative min-h-[300px] lg:min-h-[500px]">
-              <img src="/images/Ghost1.png" alt="Ghost - Rite Here Rite Now" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500">
+              <div id="ghost-carousel" class="relative h-full">
+                <!-- Slide 1: Image -->
+                <div class="ghost-slide absolute inset-0">
+                  <img src="/images/Ghost1.png" alt="Ghost - Rite Here Rite Now" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+
+                <!-- Slide 2: YouTube Video -->
+                <div class="ghost-slide absolute inset-0 hidden">
+                  <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/acmy0DtTEuc" title="Ghost - Rite Here Rite Now" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+              </div>
+
+              <!-- Navigation Arrows -->
+              <button onclick="ghostPrevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-dark rounded-full p-2 shadow-lg transition-all z-10">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+              </button>
+              <button onclick="ghostNextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-dark rounded-full p-2 shadow-lg transition-all z-10">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </button>
+
+              <!-- Dots -->
+              <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex justify-center gap-2 z-10">
+                <button onclick="ghostGoToSlide(0)" class="ghost-dot w-2 h-2 rounded-full bg-white transition-all"></button>
+                <button onclick="ghostGoToSlide(1)" class="ghost-dot w-2 h-2 rounded-full bg-white/40 transition-all"></button>
+              </div>
             </div>
           </div>
         </div>
@@ -231,7 +259,35 @@
         <div class="relative overflow-hidden rounded-2xl bg-dark group">
           <div class="grid lg:grid-cols-2">
             <div class="relative min-h-[300px] lg:min-h-[450px] order-2 lg:order-1">
-              <img src="/images/taylorTomlinson-gotv.png" alt="Taylor Tomlinson #iVoted Campaign" class="absolute inset-0 w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-500">
+              <div id="ivoted-carousel" class="relative h-full">
+                <!-- Slide 1: Image -->
+                <div class="ivoted-slide absolute inset-0">
+                  <img src="/images/taylorTomlinson-gotv.png" alt="Taylor Tomlinson #iVoted Campaign" class="absolute inset-0 w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+
+                <!-- Slide 2: YouTube Short -->
+                <div class="ivoted-slide absolute inset-0 hidden">
+                  <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/IlXvSZv8Wc0" title="#iVoted Campaign" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+              </div>
+
+              <!-- Navigation Arrows -->
+              <button onclick="ivotedPrevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-dark rounded-full p-2 shadow-lg transition-all z-10">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+              </button>
+              <button onclick="ivotedNextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-dark rounded-full p-2 shadow-lg transition-all z-10">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </button>
+
+              <!-- Dots -->
+              <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex justify-center gap-2 z-10">
+                <button onclick="ivotedGoToSlide(0)" class="ivoted-dot w-2 h-2 rounded-full bg-white transition-all"></button>
+                <button onclick="ivotedGoToSlide(1)" class="ivoted-dot w-2 h-2 rounded-full bg-white/40 transition-all"></button>
+              </div>
             </div>
             <div class="p-10 lg:p-16 flex flex-col justify-center order-1 lg:order-2">
               <p class="font-heading text-sm tracking-widest text-accent uppercase mb-4">#iVoted &times; Drops</p>
@@ -457,6 +513,18 @@
           </div>
         </a>
 
+        <a href="/projects/zed.html" class="project-card group relative overflow-hidden rounded-xl bg-white block">
+          <div class="aspect-[4/3] overflow-hidden bg-neutral-100">
+            <model-viewer src="/images/zed.glb" alt="Zed AR Experience" auto-rotate rotation-per-second="30deg" camera-orbit="90deg 90deg 5m" min-field-of-view="-100" max-field-of-view="100" camera-controls interaction-prompt="none" shadow-intensity="1" touch-action="pan-y" class="w-full h-full" style="--poster-color: transparent;">
+            </model-viewer>
+          </div>
+          <div class="p-6">
+            <p class="text-xs text-accent font-heading tracking-wide uppercase">Believe France</p>
+            <h4 class="font-heading text-lg font-medium text-dark mt-1">Zed</h4>
+            <p class="text-sm text-muted mt-2 font-light">Immersive listening experience for French hip-hop</p>
+          </div>
+        </a>
+
       </div>
     </div>
   </section>
@@ -658,6 +726,92 @@
       } catch (err) {
         form.innerHTML = '<p class="text-neutral-400 font-heading text-sm py-3">Something went wrong. Email us at hello@drops.nyc</p>';
       }
+    }
+  </script>
+
+  <!-- Ghost Carousel Script -->
+  <script>
+    let ghostCurrentSlide = 0;
+    const ghostSlides = document.querySelectorAll('.ghost-slide');
+    const ghostDots = document.querySelectorAll('.ghost-dot');
+
+    function ghostShowSlide(index) {
+      ghostSlides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.remove('hidden');
+        } else {
+          slide.classList.add('hidden');
+        }
+      });
+
+      ghostDots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.remove('bg-white/40');
+          dot.classList.add('bg-white');
+        } else {
+          dot.classList.add('bg-white/40');
+          dot.classList.remove('bg-white');
+        }
+      });
+
+      ghostCurrentSlide = index;
+    }
+
+    function ghostNextSlide() {
+      const next = (ghostCurrentSlide + 1) % ghostSlides.length;
+      ghostShowSlide(next);
+    }
+
+    function ghostPrevSlide() {
+      const prev = (ghostCurrentSlide - 1 + ghostSlides.length) % ghostSlides.length;
+      ghostShowSlide(prev);
+    }
+
+    function ghostGoToSlide(index) {
+      ghostShowSlide(index);
+    }
+  </script>
+
+  <!-- iVoted Carousel Script -->
+  <script>
+    let ivotedCurrentSlide = 0;
+    const ivotedSlides = document.querySelectorAll('.ivoted-slide');
+    const ivotedDots = document.querySelectorAll('.ivoted-dot');
+
+    function ivotedShowSlide(index) {
+      ivotedSlides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.remove('hidden');
+        } else {
+          slide.classList.add('hidden');
+        }
+      });
+
+      ivotedDots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.remove('bg-white/40');
+          dot.classList.add('bg-white');
+        } else {
+          dot.classList.add('bg-white/40');
+          dot.classList.remove('bg-white');
+        }
+      });
+
+      ivotedCurrentSlide = index;
+    }
+
+    function ivotedNextSlide() {
+      const next = (ivotedCurrentSlide + 1) % ivotedSlides.length;
+      ivotedShowSlide(next);
+    }
+
+    function ivotedPrevSlide() {
+      const prev = (ivotedCurrentSlide - 1 + ivotedSlides.length) % ivotedSlides.length;
+      ivotedShowSlide(prev);
+    }
+
+    function ivotedGoToSlide(index) {
+      ivotedShowSlide(index);
     }
   </script>
 

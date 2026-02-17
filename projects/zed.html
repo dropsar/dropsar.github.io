@@ -55,35 +55,55 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-        <!-- Left: Video and Model -->
-        <div class="relative space-y-6">
-          <!-- Video -->
-          <div class="relative rounded-2xl overflow-hidden bg-neutral-100 aspect-video">
-            <iframe
-              title="vimeo-player"
-              src="https://player.vimeo.com/video/968316241?h=89b7770311"
-              class="w-full h-full"
-              frameborder="0"
-              allowfullscreen>
-            </iframe>
+        <!-- Left: Carousel -->
+        <div class="relative">
+          <div id="carousel" class="relative rounded-2xl overflow-hidden bg-neutral-100 aspect-square">
+            <!-- Slide 1: Video -->
+            <div class="carousel-slide absolute inset-0">
+              <iframe
+                title="vimeo-player"
+                src="https://player.vimeo.com/video/968316241?h=89b7770311"
+                class="w-full h-full"
+                frameborder="0"
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <!-- Slide 2: Model Viewer -->
+            <div class="carousel-slide absolute inset-0 hidden">
+              <model-viewer
+                src="/images/zed.glb"
+                poster="/images/zed.png"
+                camera-orbit="90deg 90deg 5m"
+                min-field-of-view="-100"
+                max-field-of-view="100"
+                camera-controls
+                interaction-prompt="none"
+                shadow-intensity="1"
+                touch-action="pan-y"
+                auto-rotate
+                class="w-full h-full"
+                style="--poster-color: transparent;">
+              </model-viewer>
+            </div>
           </div>
 
-          <!-- Model Viewer -->
-          <div class="relative rounded-2xl overflow-hidden bg-neutral-100 aspect-square">
-            <model-viewer
-              src="/images/zed.glb"
-              poster="/images/zed.png"
-              camera-orbit="90deg 90deg 5m"
-              min-field-of-view="-100"
-              max-field-of-view="100"
-              camera-controls
-              interaction-prompt="none"
-              shadow-intensity="1"
-              touch-action="pan-y"
-              auto-rotate
-              class="w-full h-full"
-              style="--poster-color: transparent;">
-            </model-viewer>
+          <!-- Navigation Arrows -->
+          <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-dark rounded-full p-3 shadow-lg transition-all z-10">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-dark rounded-full p-3 shadow-lg transition-all z-10">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+
+          <!-- Dots -->
+          <div class="flex justify-center gap-2 mt-6">
+            <button onclick="goToSlide(0)" class="carousel-dot w-2 h-2 rounded-full bg-accent transition-all"></button>
+            <button onclick="goToSlide(1)" class="carousel-dot w-2 h-2 rounded-full bg-neutral-300 transition-all"></button>
           </div>
         </div>
 
@@ -119,5 +139,49 @@
       </a>
     </div>
   </section>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.remove('hidden');
+          slide.classList.add('active');
+        } else {
+          slide.classList.add('hidden');
+          slide.classList.remove('active');
+        }
+      });
+
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.remove('bg-neutral-300');
+          dot.classList.add('bg-accent');
+        } else {
+          dot.classList.add('bg-neutral-300');
+          dot.classList.remove('bg-accent');
+        }
+      });
+
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      const next = (currentSlide + 1) % slides.length;
+      showSlide(next);
+    }
+
+    function prevSlide() {
+      const prev = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(prev);
+    }
+
+    function goToSlide(index) {
+      showSlide(index);
+    }
+  </script>
 </body>
 </html>
